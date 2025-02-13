@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+  <hibernate-mapping>
+    <class name="com.iticbcn.pauchacon.model.Trayecto" table="trayecto">
+
+      <!-- Clave primaria -->
+      <id name="idTrayecto" column="id_trayecto" type="int">
+        <generator class="identity"/>
+      </id>
+
+      <!-- Propiedades -->
+      <property name="precio" column="precio" type="double" not-null="true"/>
+      <property name="llegada" column="llegada" type="string" not-null="true"/>
+      <property name="salida" column="salida" type="string" not-null="true"/>
+      <property name="hora" column="hora" type="string" not-null="true"/>
+      <property name="capacidad" column="capacidad" type="int" not-null="true"/>
+
+
+      <!-- Relación ManyToOne con Compania -->
+      <many-to-one name="compania" class="com.iticbcn.pauchacon.model.Compania" column="id_compania" not-null="true"/>
+
+      <!-- Relación OneToOne con Tren -->
+      <one-to-one name="tren" class="com.iticbcn.pauchacon.model.Tren" cascade="persist" fetch="join" lazy="false"/>
+
+      <!-- Relación OneToMany con Reserva -->
+      <set name="reservas" cascade="all" inverse="true">
+        <key column="id_trayecto"/>
+        <one-to-many class="com.iticbcn.pauchacon.model.Reserva"/>
+      </set>
+
+    </class>
+  </hibernate-mapping>
