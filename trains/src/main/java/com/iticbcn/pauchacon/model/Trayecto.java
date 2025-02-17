@@ -17,7 +17,7 @@ public class Trayecto {
     @OneToOne
     @JoinColumn(name = "id_tren")
     private Tren tren;
-    private Set<Reserva> reservas; // Cambiar de List a Set
+    private Set<Reserva> reservas; 
 
     public Trayecto() {
     }

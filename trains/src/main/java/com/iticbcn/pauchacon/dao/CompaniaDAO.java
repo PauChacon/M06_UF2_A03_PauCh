@@ -33,7 +33,7 @@ public class CompaniaDAO {
             tx.commit();
         } catch (Exception e) {
             if (tx != null) tx.rollback();
-            throw e;
+            System.err.println("Error guardando la compañía: " + e.getMessage());
         }
     }
 
