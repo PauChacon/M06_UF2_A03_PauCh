@@ -16,11 +16,9 @@ public class TrenController {
         return trendao.LlistarTrens();
     }
     public static void AddTren(BufferedReader br, SessionFactory sf) throws Exception {
-        // Crear objeto Tren
         Tren t = new Tren();
         TrenDAO tdao = new TrenDAO(sf);
     
-        // Pedir nombre y modelo del tren al usuario
         System.out.println("INSERIR NOU NOM PEL TREN");
         String nombre = br.readLine();
         t.setNombre(nombre);
@@ -29,7 +27,6 @@ public class TrenController {
         String modelo = br.readLine();
         t.setModelo(modelo);
     
-        // Insertar tren usando el DAO
         tdao.insertTren(t);
     
         System.out.println("Tren insertado correctamente");

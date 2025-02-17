@@ -50,7 +50,7 @@ public class TrenDAO {
         try (Session ses = sessionFactory.openSession()) {
             try {
                 ses.beginTransaction();
-                ses.persist(tren);  // Guarda el objeto tren en la base de datos
+                ses.persist(tren);  
                 ses.getTransaction().commit();
             } catch (JDBCException jdbcex) {
                 handleException(ses, jdbcex, "Error de JDBC");                       

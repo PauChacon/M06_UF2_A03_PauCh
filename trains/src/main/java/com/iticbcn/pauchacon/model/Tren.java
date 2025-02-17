@@ -24,7 +24,6 @@ public class Tren {
     @Column(name = "nombre", nullable = false)
     private String nombre;
 
-    // Relación OneToOne con Trayecto
    @OneToOne
     @JoinColumn(name = "id_tren") 
     private Trayecto trayecto;
@@ -33,14 +32,12 @@ public class Tren {
     public Tren() {
     }
 
-    // Constructor sin asignación de trayecto en este caso
     public Tren(int idTren, String modelo, String nombre) {
         this.idTren = idTren;
         this.modelo = modelo;
         this.nombre = nombre;
     }
 
-    // Getters y Setters
     public int getIdTren() {
         return idTren;
     }
